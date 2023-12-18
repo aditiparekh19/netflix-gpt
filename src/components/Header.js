@@ -26,11 +26,13 @@ const Header = () => {
           <img
             className="w-15 h-20 p-2 rounded-3xl"
             src={auth?.currentUser?.photoURL}
+            alt="display-icon"
           />
           <img
             onClick={handleSignOut}
             className="w-12 h-12 p-2 my-4 rounded-3xl"
             src="https://clipground.com/images/logout-clipart-1.jpg"
+            alt="sign-out"
           />
         </div>
       )}
