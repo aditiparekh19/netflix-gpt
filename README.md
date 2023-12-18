@@ -6,7 +6,15 @@
 - Routing
 - Login Form
 - SignUp Form
-- Form Validation (UseRef)
+- Form Validation (UseRef hook)
+- Firebase setup
+- Deploy app to production
+- Create SignUp user account
+- Implement SigIn functionality
+- Create Redux store with userSlice
+- Implement Sign out
+- Update Profile
+
 
 # Features
 - Login/SignUp
