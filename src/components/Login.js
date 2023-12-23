@@ -7,9 +7,9 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BGIMG, PHOTOURL } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -17,7 +17,6 @@ const Login = () => {
   const name = useRef();
   const email = useRef();
   const password = useRef();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSubmitAction = () => {
@@ -37,11 +36,10 @@ const Login = () => {
         password?.current?.value
       )
         .then((userCredential) => {
-          navigate("/browse");
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name?.current?.value,
-            photoURL: "https://avatars.githubusercontent.com/u/88963897?v=4",
+            photoURL: PHOTOURL,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -53,7 +51,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error);
@@ -70,11 +67,7 @@ const Login = () => {
         email?.current?.value,
         password?.current?.value
       )
-        .then((userCredential) => {
-          const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
-        })
+        .then()
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
@@ -89,7 +82,7 @@ const Login = () => {
       <div>
         <img
           className="absolute w-screen h-screen"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/b4c7f092-0488-48b7-854d-ca055a84fb4f/5b22968d-b94f-44ec-bea3-45dcf457f29e/IN-en-20231204-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={BGIMG}
           alt="background"
         />
       </div>

@@ -14,6 +14,8 @@
 - Create Redux store with userSlice
 - Implement Sign out
 - Update Profile
+- Get data from TMDB
+- Build Main container
 
 
 # Features
